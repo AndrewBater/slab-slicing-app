@@ -1,0 +1,7 @@
+<div>
+  <button (click)="addPiece()">Add Piece</button>
+  Pieces List
+  <div *ngFor="let piece of pieces">
+    <app-size [size]="piece"></app-size>
+  </div>
+</div>
