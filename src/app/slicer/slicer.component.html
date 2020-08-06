@@ -2,17 +2,14 @@
 
   <app-slab [slab]="slab" (slabDataChange)="updateSlabSize($event)"></app-slab>
 
-  
-  Calculations
-  <div>Total Slab Area: {{slab.area}}</div>
-  <div>Total Pieces Area: {{getPiecesArea()}}</div>
-  <div>Minimum Slabs Needed: {{findMinimumSlices()}}</div>
+  <label>Allow Rotation: <input type="checkbox" [(ngModel)]="allowRotation" /></label>
   <button (click)="sortPiecesOnSlab()">Size Left Sort</button>
   <app-pieces [pieces]="pieces"></app-pieces>
 </div>
 
 <div class="graph">
-  <div class="slab" [style.width.px]="slab.width" [style.height.px]="slab.height">
+  <div class="slab" [style.width.px]="slab.width" [style.height.px]="slabHeight">
+    <div class="spacer" *ngFor="let space of slabNumber" [style.width.px]="slab.width" [style.height.px]="10" [style.top.px]="getSpacerHeight(space)"></div>
     <div *ngFor="let piece of pieces" class="piece" [style.width.px]="piece.width" [style.height.px]="piece.height" [style.left.px]="piece.x" [style.top.px]="piece.y">
       ({{ piece.width }},{{ piece.height }}) - ({{piece.x}},{{piece.y}})
     </div>

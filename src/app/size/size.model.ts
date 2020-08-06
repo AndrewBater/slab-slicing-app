@@ -11,6 +11,7 @@ export class SizeModel {
   public x: number;
   public y: number;
   public sorted: boolean;
+  public log: boolean;
 
   get area() {
     return this.width * this.height;
